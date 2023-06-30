@@ -120,7 +120,7 @@ data class ResponseModel(
     @NonNull
     var id: Int=0,
     @SerializedName("exclusions")
-    var exclusions: List<List<Exclusion?>?>? = null,
+    var exclusions: List<List<Exclusion?>>? = null,
     @SerializedName("facilities")
     var facilities: List<Facility>? = null
 ) : Parcelable {
@@ -149,7 +149,10 @@ data class ResponseModel(
             @SerializedName("id")
             var id: String? = null,
             @SerializedName("name")
-            var name: String? = null
+            var name: String? = null,
+            var isSelected:Boolean=false,
+            var upPairMessage:String = "",
+            var hash:HashMap<String, MutableSet<String>>? = null
         ) : Parcelable,AbstractModel()
     }
 }

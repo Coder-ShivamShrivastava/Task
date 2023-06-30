@@ -17,7 +17,7 @@ class FetchDataWM(val context: Context,workerParams: WorkerParameters): Worker(c
         fun fetchDataWorkManager(context: Context,viewModel:HomeVM){
             try {
                 homeVM = viewModel
-                val periodicWorkRequest = PeriodicWorkRequestBuilder<FetchDataWM>(24,TimeUnit.HOURS).build()
+                val periodicWorkRequest = PeriodicWorkRequestBuilder<FetchDataWM>(24,TimeUnit.HOURS).build() // set api calling time, first time immediately call
                 WorkManager.getInstance(context).enqueueUniquePeriodicWork("FetchDataWM",ExistingPeriodicWorkPolicy.KEEP,periodicWorkRequest)
             }catch (e:Exception){
                 Log.d("exception","${e.printStackTrace()}")
